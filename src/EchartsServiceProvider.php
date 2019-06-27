@@ -2,6 +2,7 @@
 
 namespace Jxlwqq\Echarts;
 
+use Encore\Admin\Admin;
 use Illuminate\Support\ServiceProvider;
 
 class EchartsServiceProvider extends ServiceProvider
@@ -22,5 +23,9 @@ class EchartsServiceProvider extends ServiceProvider
                 'laravel-admin-echarts'
             );
         }
+
+        Admin::booting(function () {
+            Admin::js('vendor/laravel-admin-ext/echarts/echarts@4.2.1/dist/echarts.min.js');
+        });
     }
 }
